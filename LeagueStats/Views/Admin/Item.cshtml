@@ -1,0 +1,60 @@
+
+@{
+    ViewData["Title"] = "Champion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <script src="~/js/Item.js" type="text/javascript"></script>
+}
+
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <br />
+        <h1>Champions</h1>
+        <br />
+    </div>
+</div>
+
+<div class="row well">
+    <div class="col-xs-6 text-center">
+        <h3><u>Champions</u></h3>
+        <h4>110</h4>
+    </div>
+    <div class="col-xs-6 text-center">
+        <h3><u>Last Update</u></h3>
+        <h4>5-25-2017</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <br />
+        <div class="btn btn-success btn-lg" id="refresh">
+            <text>Refresh</text>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <br />
+        <label id="refreshStatus"></label>
+        <div class="progress">
+            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                style="width:0%">
+                Test
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#refresh').on('click', function () {
+
+        $('#refresh').addClass('disabled');
+        refresh(1001); // MAGIC - refresh(x), where x = startID
+
+
+    })
+</script>
