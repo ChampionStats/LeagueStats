@@ -1,37 +1,38 @@
-﻿function refresh(currentID) {
+﻿var endID = 500; // MAGIC
+var championID = 1;
 
-    var endID = 500; // MAGIC
+function refresh() {
 
-    if (currentID === endID)
+    if (championID === endID)
     {
-        window.location.replace("/Champion/Index")
+        window.location.replace("/Admin/Index")
         alert('Successfully refresh champion database table.');
     }
     else
     {
-        setTimeout(addChampion(currentID, endID), 1000) // MAGIC - RateLimit
+        addChampion(championID);
+        
     }
 
 }
 
-function addChampion(currentID, endID) {
+function addChampion(currentID) {
 
     $.ajax({
         type: "GET",
-        url: "/Champion/Refresh/" + currentID,
+        url: "/Champion/Refresh/" + championID,
         success: function (status) {
 
-            var progressValue = (currentID / endID) * 100;
+            var progressValue = (championID / endID) * 100;
             progressValue = Math.round(progressValue);
 
             $('.progress-bar').attr('style', 'width:' + progressValue + '%');
-            $('.progress-bar').text('' + progressValue + '% (' + currentID + '/' + endID + ' Champions)');
+            $('.progress-bar').text('' + progressValue + '% (' + championID + '/' + endID + ' Champions)');
             $('#refreshStatus').text(status);
 
 
-            currentID++;
-
-            refresh(currentID);
+            championID++;
+            refresh();
 
         }
     })

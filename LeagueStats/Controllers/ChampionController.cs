@@ -7,6 +7,7 @@ using LeagueStats.Data;
 using System.Net.Http;
 using Newtonsoft.Json;
 using LeagueStats.Models;
+using System.Threading;
 
 namespace LeagueStats.Controllers
 {
@@ -43,6 +44,8 @@ namespace LeagueStats.Controllers
 
         public async Task<string> Refresh(int id)
         {
+            Thread.Sleep(1000); // Rate Limit
+
             DataController data = new DataController();
 
             string key = data.Key();

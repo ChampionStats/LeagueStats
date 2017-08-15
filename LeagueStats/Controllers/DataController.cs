@@ -15,7 +15,7 @@ namespace LeagueStats.Controllers
 
         public string Key()
         {
-            return "RGAPI-62f8af2b-ced7-449e-99a2-e653783e50d5";
+            return "RGAPI-2fd3612a-a978-4aa8-a0ad-b3c18c135e6a";
         }
 
     }
